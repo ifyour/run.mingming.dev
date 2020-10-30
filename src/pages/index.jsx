@@ -85,7 +85,7 @@ export default () => {
         ...bounds,
       });
     }
-    setTitle(`${y} Running Heatmap`);
+    setTitle(`${y || new Date().getFullYear()} Running Heatmap`);
   };
 
   const locateActivity = (run) => {
@@ -210,10 +210,7 @@ const YearsStat = ({ runs, year, onClick }) => {
     <div className="fl w-100 w-30-l pb5 pr5-l">
       <section className="pb4" style={{ paddingBottom: '0rem' }}>
         <p>
-          我用 App 记录自己跑步{yearsArr.length-1}年有余，下面列表展示的是
-          {year}
-          的数据
-          <br />
+          我用 Nick Run Club 记录自己跑步，下面列表展示的是{year || '今年'}的数据
         </p>
       </section>
       <hr color="red" />
@@ -541,8 +538,8 @@ const RunRow = ({
 const Stat = ({
   value, description, className, citySize,
 }) => (
-  <div className={`${className} pb2 w-100`}>
-    <span className={`f${citySize || 1} fw9 i`}>{intComma(value)}</span>
-    <span className="f3 fw6 i">{description}</span>
-  </div>
-);
+    <div className={`${className} pb2 w-100`}>
+      <span className={`f${citySize || 1} fw9 i`}>{intComma(value)}</span>
+      <span className="f3 fw6 i">{description}</span>
+    </div>
+  );

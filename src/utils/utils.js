@@ -13,10 +13,11 @@ const titleForShow = (run) => {
   if (run.name) {
     name = run.name;
   }
-  return `${name} ${date} ${distance} KM ${!run.summary_polyline? "(no map data for this run)": ""}` ;
+  return `${name} ${date} ${distance} KM ${!run.summary_polyline ? "(no map data for this run)" : ""}`;
 };
 
 const formatPace = (d) => {
+  if (Number.isNaN(d)) return '0';
   const pace = (1000.0 / 60.0) * (1.0 / d);
   const minutes = Math.floor(pace);
   const seconds = Math.floor((pace - minutes) * 60.0);
@@ -61,7 +62,7 @@ const locationForRun = (run) => {
   return { country, province, city };
 };
 
-const intComma = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const intComma = (x = '') => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const pathForRun = (run) => {
   try {
@@ -127,8 +128,8 @@ const getBoundsForGeoData = (geoData, totalLength) => {
   // find first have data
   for (let f of features) {
     if (f.geometry.coordinates.length) {
-     points = f.geometry.coordinates;
-     break
+      points = f.geometry.coordinates;
+      break
     }
   }
   if (!points) {
@@ -157,7 +158,7 @@ const filterYearRuns = ((run, year) => run.start_date_local.slice(0, 4) === year
 const filterAndSortRuns = (activities, year, sortFunc) => {
   let s = activities;
   if (year !== 'Total') {
-     s = activities.filter((run) => filterYearRuns(run, year));
+    s = activities.filter((run) => filterYearRuns(run, year));
   }
   return s.sort(sortFunc);
 };

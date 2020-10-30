@@ -8,9 +8,12 @@
 2. 设置环境变量
    1. 获取跑步 App Token
    2. 获取 GitHub Token
-   3. 配置 [GitHub Workflow](./.github/workflows/run_data_sync.yml)
-3. 部署到 Vercel
-4. 配置个性域名 (可选)
+3. 配置 [GitHub Workflow](./.github/workflows/run_data_sync.yml)]
+   1. 配置 App 类型为 `nike`
+   2. 配置仓库密钥 `NIKE_REFRESH_TOKEN`
+   3. 配置仓库 Git 读写密钥 `GIT_TOKEN`
+4. 部署到 Vercel
+5. 配置个性域名 (可选)
 
 
 ### 特别感谢

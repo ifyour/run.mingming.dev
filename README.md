@@ -8,7 +8,7 @@
 2. 设置环境变量
    1. 获取跑步 App Token
    2. 获取 GitHub Token
-   3. 配置工作流 [GitHub Workflow](./.github/workflows/run_data_sync.yml)
+   3. 配置 [GitHub Workflow](./.github/workflows/run_data_sync.yml)
 3. 部署到 Vercel
 4. 配置个性域名 (可选)
 
